@@ -11,4 +11,33 @@ Lecture slides will be posted after each class meeting.
 
 Check back regularly for updates, including assignment deadlines and other important dates.
 
-<cloudstitch-handlebars user="jeanyang" app="cmu-15-819-domain-specific-languages-syllabus-1"></cloudstitch-handlebars>
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td><b>Date</b></td>
+      <td><b>Lecturer</b></td>
+      <td><b>Topic</b></td>
+      <td><b>Slides</b></td>
+      <td><b>Assignments</b></td>
+    </tr>
+    {% for row in site.Stuff %}
+      {% if row.UnitHeader %}
+      <tr>
+        <td colspan="5">
+          <i>{{row.UnitHeader}}</i>
+        </td>
+      </tr>
+      {% endif %}
+      {% if row.Topic %}
+        <tr>
+          <td>{{row.Date}}</td>
+          <td>{{row.Lecturer}}</td>
+          <td><b>{{row.Topic}}</b> {{row.Details}}</td>
+          <td>
+            {% if row.Slides_pptx %}<a href="{{row.Slides_pptx}}" target="blank">pptx</a>{% endif %}
+            {% if row.Slides_pdf %}<a href="{{row.Slides_pdf}}" target="blank">pptx</a>{% endif %}
+          </td>
+          <td>{{row.Assignments}}</td>
+        </tr>
+      {% endif %}
+  </table>
